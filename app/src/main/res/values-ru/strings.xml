@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Mebelinno</string>
+    <string name="sign_in_button">войти</string>
+    <string name="password_autho">пароль</string>
+    <string name="email_autho">email</string>
+</resources>
