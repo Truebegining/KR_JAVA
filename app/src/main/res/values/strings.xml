@@ -3,4 +3,8 @@
     <string name="sign_in_button">sign in</string>
     <string name="password_autho">password</string>
     <string name="email_autho" translatable="false">email</string>
+    <string name="magazin_mebeli" translatable="false">магазин мебели</string>
+    <string name="mebelinno_main" translatable="false">Mebelinno</string>
+    <string name="create_account">create account</string>
+    <string name="enter_password_again">repeat password</string>
 </resources>

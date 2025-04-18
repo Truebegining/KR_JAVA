@@ -37,18 +37,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="151dp"
-        android:layout_marginEnd="27dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="97dp"
         android:text="@string/magazin_mebeli"
         android:textColor="@color/black"
         android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="85dp"
-        android:layout_marginBottom="315dp"
+        android:layout_marginBottom="317dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -78,13 +81,17 @@
             tools:layout_editor_absoluteX="83dp"
             tools:layout_editor_absoluteY="421dp" />
 
-        <Button
-            style="@style/ButtonStyle"
-            android:layout_width="169dp"
-            android:layout_height="58dp"
+        <EditText
+            android:layout_width="210dp"
+            android:layout_height="56dp"
             android:layout_marginTop="18dp"
-            android:text="@string/sign_in_button"
-            android:textSize="24sp" />
+            android:background="@drawable/shape_rounded_containers"
+            android:gravity="center_vertical"
+            android:hint="@string/enter_password_again"
+            android:inputType="textPassword"
+            android:paddingStart="16dp"
+            tools:layout_editor_absoluteX="83dp"
+            tools:layout_editor_absoluteY="421dp" />
 
         <TextView
             style="@style/RobotoText"

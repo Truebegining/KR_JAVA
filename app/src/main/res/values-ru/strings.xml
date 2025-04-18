@@ -3,4 +3,6 @@
     <string name="sign_in_button">войти</string>
     <string name="password_autho">пароль</string>
     <string name="email_autho">email</string>
+    <string name="create_account">создать аккаунт</string>
+    <string name="enter_password_again">повторите пароль</string>
 </resources>
