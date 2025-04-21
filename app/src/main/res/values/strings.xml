@@ -7,4 +7,9 @@
     <string name="mebelinno_main" translatable="false">Mebelinno</string>
     <string name="create_account">create account</string>
     <string name="enter_password_again">repeat password</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="catalog_bott_nav">Catalog</string>
+    <string name="favorites_bott_nav">Favorites</string>
+    <string name="cart_bott_nav">Cart</string>
 </resources>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/catalogFragment">
+
+    <fragment
+        android:id="@+id/catalogFragment"
+        android:name="com.example.kr_kotlin.ui.catalog.CatalogFragment"
+        android:label="fragment_catalog"
+        tools:layout="@layout/fragment_catalog" >
+        <action
+            android:id="@+id/action_catalogFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_catalogFragment_to_subCatalogFragment"
+            app:destination="@id/subCatalogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productCardfFragment"
+        android:name="com.example.kr_kotlin.ui.productCard.ProductCardfFragment"
+        android:label="fragment_product_cardf"
+        tools:layout="@layout/fragment_product_cardf" >
+        <action
+            android:id="@+id/action_productCardfFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.kr_kotlin.ui.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/subCatalogFragment"
+        android:name="com.example.kr_kotlin.ui.sub_catalog.SubCatalogFragment"
+        android:label="fragment_sub_catalog"
+        tools:layout="@layout/fragment_sub_catalog" >
+        <action
+            android:id="@+id/action_subCatalogFragment_to_productCardfFragment"
+            app:destination="@id/productCardfFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.kr_kotlin.ui.cart.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.example.kr_kotlin.ui.favorites.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites" />
+</navigation>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/catalogFragment"
+        android:title="@string/catalog_bott_nav"
+        android:icon="@drawable/ic_user" />
+
+    <item
+        android:id="@+id/favoritesFragment"
+        android:title="@string/favorites_bott_nav"
+        android:icon="@drawable/ic_heart"/>
+
+    <item
+        android:id="@+id/cartFragment"
+        android:title="@string/cart_bott_nav"
+        android:icon="@drawable/ic_cart"/>
+
+</menu>
