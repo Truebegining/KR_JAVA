@@ -29,6 +29,7 @@
 
     </FrameLayout>
 
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
@@ -38,6 +39,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@color/white"
         app:menu="@menu/bottom_nav_menu"
-        />
+        app:itemActiveIndicatorStyle="@style/ActiveIndicatorStyle">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
