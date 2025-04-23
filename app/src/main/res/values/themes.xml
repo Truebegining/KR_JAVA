@@ -3,26 +3,18 @@
     <style name="Base.Theme.KR_KOTLIN" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="itemActiveIndicatorStyle">@style/ActiveIndicatorStyle</item>
-
+<!--        <item name="itemRippleColor">@android:color/transparent</item>-->
+<!--        <item name="itemBackground">@null</item>-->
+<!--        <item name="colorControlHighlight">@android:color/transparent</item>-->
     </style>
 
-    <style name="Theme.KR_KOTLIN" parent="Base.Theme.KR_KOTLIN" />
+    <style name="Theme.KR_KOTLIN" parent="Base.Theme.KR_KOTLIN"/>
 
 <!--    <style name="BottomNavActiveIndicatorStyle">-->
 <!--        <item name="android:background">@drawable/shape_bott_nav_item</item>-->
 <!--    </style>-->
-    <style name="ActiveIndicatorStyle" parent="@style/Widget.Material3.BottomNavigationView.ActiveIndicator">
-        <!-- Цвет индикатора -->
-        <item name="android:color">@color/blue</item>
-        <!-- Высота индикатора -->
-        <item name="android:height">32dp</item>
-        <!-- Ширина индикатора (можно сделать равной ширине иконки) -->
-        <item name="android:width">64dp</item>
-        <!-- Скругление углов -->
-<!--        <item name="android:shapeAppearance">@style/ShapeAppearance.CornerSmall</item>-->
-<!--        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.Small</item>-->
-        <item name="cornerRadius">100dp</item>
-    </style>
+
+
+
 
 </resources>

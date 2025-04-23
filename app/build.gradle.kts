@@ -5,7 +5,6 @@ plugins {
 
 android {
     namespace = "com.example.kr_kotlin"
-    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.kr_kotlin"
@@ -37,6 +36,7 @@ android {
     buildFeatures{
         viewBinding = true
     }
+    compileSdk = 35
 }
 
 dependencies {
