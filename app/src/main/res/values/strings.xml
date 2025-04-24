@@ -16,4 +16,7 @@
     <string name="beds_catalog_fragment">Beds</string>
     <string name="wardrobes_catalog_fragment">Wardrobes</string>
     <string name="sofas_catalog_fragment">Sofas</string>
+    <string name="log_out">Log out</string>
+    <string name="buy">Buy</string>
+    <string name="order">Order</string>
 </resources>

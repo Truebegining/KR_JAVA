@@ -1,14 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.productCard.ProductCardfFragment">
+    
+    <LinearLayout
+        android:layout_width="332dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="47dp">
+        
+        <ImageView
+            android:layout_width="317dp"
+            android:layout_height="317dp"
+            android:layout_gravity="center_horizontal"/>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/MotserratText"
+            android:textSize="32sp"
+            android:layout_gravity="start"
+            android:text="ш*в*г - 80*200*40">
+        </TextView>
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/MotserratText"
+            android:textSize="32sp"
+            android:layout_gravity="start"
+            android:text="цена: 15000₽">
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/MotserratText"
+            android:textSize="32sp"
+            android:layout_gravity="start"
+            android:text="шкаф белый">
+        </TextView>
+
+    </LinearLayout>
+
+    <Button
+        style="@style/ButtonStyle"
+        android:layout_width="346dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="21dp"
+        android:text="@string/buy"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_heart38x36_unselected"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="31dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

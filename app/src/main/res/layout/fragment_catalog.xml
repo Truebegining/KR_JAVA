@@ -43,15 +43,16 @@
 
 
     <SearchView
-        android:iconifiedByDefault="false"
-        android:queryHint="Поиск"
         android:id="@+id/search_bar"
+        style="@style/CustomSearchView"
         android:layout_width="0dp"
         android:layout_height="56dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="17dp"
-        android:background="@drawable/shape_search_bar"
+        android:iconifiedByDefault="false"
+
+        android:queryHint="Поиск"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rectangle_catalog_fragment" />
