@@ -13,6 +13,11 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="MotserratText">
+        <item name="fontFamily">@font/montserrat_regular</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <style name="ActiveIndicatorStyle" parent="@style/Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/blue</item>
         <item name="android:height">32dp</item>

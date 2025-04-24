@@ -12,4 +12,8 @@
     <string name="catalog_bott_nav">Catalog</string>
     <string name="favorites_bott_nav">Favorites</string>
     <string name="cart_bott_nav">Cart</string>
+    <string name="catalog_catalog_fragment">catalog</string>
+    <string name="beds_catalog_fragment">Beds</string>
+    <string name="wardrobes_catalog_fragment">Wardrobes</string>
+    <string name="sofas_catalog_fragment">Sofas</string>
 </resources>
