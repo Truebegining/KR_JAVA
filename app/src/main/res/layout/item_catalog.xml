@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="150dp"
         android:layout_height="198dp"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="47dp"
         android:background="@drawable/shape_item_catalog"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,63 +29,64 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="29dp"
             android:layout_marginEnd="28dp"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:orientation="vertical">
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/articleTextView"
+                style="@style/MotserratText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/MotserratText"
-                android:textSize="10sp"
                 android:layout_gravity="center_horizontal"
-                android:text="5060068">
-            </TextView>
+                android:text="5060068"
+                android:textSize="10sp"></TextView>
 
 
             <ImageView
+                android:id="@+id/productImageView"
                 android:layout_width="93dp"
                 android:layout_height="93dp"
-                android:layout_gravity="center_horizontal">
-            </ImageView>
+                android:layout_gravity="center_horizontal"></ImageView>
 
             <TextView
+                android:id="@+id/dimensionsTextView"
+                style="@style/MotserratText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/MotserratText"
-                android:textSize="10sp"
                 android:layout_gravity="center_horizontal"
-                android:text="ш*в*г - 80*200*40">
-            </TextView>
+                android:text="ш*в*г - 80*200*40"
+                android:textSize="10sp"></TextView>
 
             <TextView
+                android:id="@+id/priceTextView"
+                style="@style/MotserratText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/MotserratText"
-                android:textSize="10sp"
                 android:layout_gravity="center_horizontal"
-                android:text="цена: 15000₽">
-            </TextView>
+                android:text="цена: 15000₽"
+                android:textSize="10sp"></TextView>
 
             <TextView
+                android:id="@+id/nameTextView"
+                style="@style/MotserratText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/MotserratText"
-                android:textSize="10sp"
                 android:layout_gravity="center_horizontal"
-                android:text="шкаф белый">
-            </TextView>
+                android:text="шкаф белый"
+                android:textSize="10sp"></TextView>
 
             <Button
+                android:id="@+id/buyButton"
                 style="@style/ButtonStyle"
                 android:layout_width="95dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
-                android:text="@string/buy"
-                android:textSize="12sp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="7dp"/>
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="7dp"
+                android:text="@string/buy"
+                android:textSize="12sp" />
 
         </LinearLayout>
 
