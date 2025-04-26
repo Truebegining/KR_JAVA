@@ -1,6 +1,7 @@
 package com.example.kr_kotlin
 
 import android.os.Bundle
+import android.view.View
 import android.widget.SearchView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -28,14 +29,28 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
-
         val bottomNavigationView = mBinding.bottomBar
         bottomNavigationView.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener{ _, destination, _ ->
+            when (destination.id) {
+                R.id.authFragment, R.id.registrFragment -> {
+                    bottomNavigationView.visibility = View.GONE
+                }
+                else -> {
+                    bottomNavigationView.visibility = View.VISIBLE
+                }
+            }
+
+        }
+
+
+
+
 
 
     }

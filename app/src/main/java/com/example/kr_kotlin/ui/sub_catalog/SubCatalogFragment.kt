@@ -32,7 +32,7 @@ class SubCatalogFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         recyclerView = view.findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = GridLayoutManager(context, 2) // ✅ Сетка 2 столбца
+        recyclerView.layoutManager = GridLayoutManager(context, 2) // Сетка 2 столбца
 
         val productList = listOf(
             Product(
@@ -41,6 +41,13 @@ class SubCatalogFragment : Fragment() {
                 dimensions = "80*200*40",
                 price = "15000₽",
                 name = "Шкаф белый"
+            ),
+            Product(
+                article = "5060069",
+                imageUrl = "https://example.com/image2.jpg",
+                dimensions = "120*200*50",
+                price = "20000₽",
+                name = "Шкаф черный"
             ),
             Product(
                 article = "5060069",
