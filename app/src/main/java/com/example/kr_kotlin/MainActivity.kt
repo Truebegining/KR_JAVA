@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.kr_kotlin.databinding.ActivityMainBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
     private var __binding : ActivityMainBinding? = null
@@ -47,12 +48,9 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
-
-
-
-
-
-
+        if (FirebaseAuth.getInstance().currentUser != null) {
+            navController.navigate(R.id.catalogFragment) // мб лучше поставить action
+        }
     }
 
     override fun onDestroy() {

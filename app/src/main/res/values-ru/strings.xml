@@ -12,4 +12,7 @@
     <string name="beds_catalog_fragment">Кровати</string>
     <string name="wardrobes_catalog_fragment">Шкафы</string>
     <string name="sofas_catalog_fragment">Диваны</string>
+    <string name="log_out">Выйти</string>
+    <string name="buy">Купить</string>
+    <string name="order">Оформить</string>
 </resources>

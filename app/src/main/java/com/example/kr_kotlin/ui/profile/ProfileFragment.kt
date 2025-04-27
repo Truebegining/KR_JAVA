@@ -9,6 +9,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.kr_kotlin.R
 import com.example.kr_kotlin.databinding.FragmentCatalogBinding
 import com.example.kr_kotlin.databinding.FragmentProfileBinding
+import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 
 
 class ProfileFragment : Fragment() {
@@ -28,7 +31,16 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mBinding.buttonLogOut.setOnClickListener {
+            Firebase.auth.signOut()
             findNavController().navigate(R.id.action_profileFragment_to_authFragment)
         }
+
+
+
+
+
+//        mBinding.buttonLogOut.setOnClickListener {
+//            findNavController().navigate(R.id.action_profileFragment_to_authFragment)
+//        }
     }
 }

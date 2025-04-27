@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Auth">
+    tools:context=".ui.registration.RegistrFragment">
 
     <ImageView
         android:id="@+id/imageView"
@@ -59,6 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView">
 
         <EditText
+            android:id="@+id/emailEt"
             android:layout_width="210dp"
             android:layout_height="56dp"
             android:background="@drawable/shape_rounded_containers"
@@ -70,6 +71,7 @@
             tools:layout_editor_absoluteY="421dp" />
 
         <EditText
+            android:id="@+id/passwordEt"
             android:layout_width="210dp"
             android:layout_height="56dp"
             android:layout_marginTop="18dp"
@@ -82,6 +84,7 @@
             tools:layout_editor_absoluteY="421dp" />
 
         <EditText
+            android:id="@+id/repasswordEt"
             android:layout_width="210dp"
             android:layout_height="56dp"
             android:layout_marginTop="18dp"
