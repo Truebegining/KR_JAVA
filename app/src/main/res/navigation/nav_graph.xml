@@ -34,7 +34,7 @@
         <action
             android:id="@+id/action_profileFragment_to_authFragment"
             app:destination="@id/authFragment"
-            app:popUpTo="@id/profileFragment"
+            app:popUpTo="@id/catalogFragment"
             app:popUpToInclusive="true"/>
     </fragment>
     <fragment
@@ -62,9 +62,7 @@
         android:label="RegistrFragment" >
         <action
             android:id="@+id/action_registrFragment_to_authFragment"
-            app:destination="@id/authFragment"
-            app:popUpTo="@id/registrFragment"
-            app:popUpToInclusive="true"/>
+            app:destination="@id/authFragment" />
     </fragment>
     <fragment
         android:id="@+id/authFragment"
@@ -73,7 +71,7 @@
         <action
             android:id="@+id/action_authFragment_to_catalogFragment"
             app:destination="@id/catalogFragment"
-            app:popUpTo="@id/authFragment"
+            app:popUpTo="@id/nav_graph"
             app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_authFragment_to_registrFragment"
