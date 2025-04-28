@@ -27,18 +27,20 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <TextView
-        style="@style/MotserratText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="61dp"
-        android:layout_marginTop="22dp"
-        android:text="Name"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <TextView-->
+<!--        android:id="@+id/nameTv"-->
+<!--        style="@style/MotserratText"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="61dp"-->
+<!--        android:layout_marginTop="22dp"-->
+<!--        android:text="Name"-->
+<!--        android:textSize="16sp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <TextView
+        android:id="@+id/emailTv"
         style="@style/MotserratText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

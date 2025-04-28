@@ -31,7 +31,7 @@ class AuthFragment : Fragment() {
 //        val email = mBinding.emailEt.text.toString().trim()
 //        val password = mBinding.passwordEt.text.toString().trim()
 
-//        Log.d("DEBUG", "Email: '$email', Password: '$password'")
+//
 
         mBinding.buttonSignIn.setOnClickListener {
             val email = mBinding.emailEt.text.toString().trim()
@@ -45,7 +45,6 @@ class AuthFragment : Fragment() {
                     .addOnCompleteListener{ task ->
                         if (task.isSuccessful) {
                             findNavController().navigate(R.id.action_authFragment_to_catalogFragment)
-                            mBinding.
                         }
                         else {
                             Toast.makeText(requireContext(), "Авторизация не удалась: " +

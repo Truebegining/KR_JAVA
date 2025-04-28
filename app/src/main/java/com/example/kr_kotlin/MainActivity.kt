@@ -10,7 +10,9 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.kr_kotlin.databinding.ActivityMainBinding
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.database
 
 class MainActivity : AppCompatActivity() {
     private var __binding : ActivityMainBinding? = null
@@ -29,6 +31,8 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0)
             insets
         }
+
+
 
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
@@ -49,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 
         }
         if (FirebaseAuth.getInstance().currentUser != null) {
-            navController.navigate(R.id.catalogFragment) // мб лучше поставить action
+            navController.navigate(R.id.action_authFragment_to_catalogFragment)
         }
     }
 
