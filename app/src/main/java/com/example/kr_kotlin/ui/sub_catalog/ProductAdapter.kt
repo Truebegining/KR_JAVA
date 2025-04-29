@@ -8,6 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.model.GlideUrl
+import com.bumptech.glide.load.model.LazyHeaders
 import com.example.kr_kotlin.R
 
 class ProductAdapter(private val productList: List<Product>) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
@@ -39,8 +41,20 @@ class ProductAdapter(private val productList: List<Product>) : RecyclerView.Adap
         holder.nameTextView.text = product.name
 
         // Загружаем изображение
+//        Glide.with(holder.itemView.context)
+//            .load(product.imageUrl)
+//            .into(holder.productImageView)
+
+        val glideUrl = GlideUrl(
+            product.imageUrl,
+            LazyHeaders.Builder()
+                .addHeader("User-Agent", "Mozilla/5.0")
+                .addHeader("Referer", "https://www.ikea.com/")
+                .build()
+        )
+
         Glide.with(holder.itemView.context)
-            .load(product.imageUrl)
+            .load(glideUrl)
             .into(holder.productImageView)
 
         // Можно навесить обработку на кнопку "Купить" при желании
