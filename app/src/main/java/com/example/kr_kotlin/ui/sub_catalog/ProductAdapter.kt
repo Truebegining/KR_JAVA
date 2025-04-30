@@ -12,7 +12,7 @@ import com.bumptech.glide.load.model.GlideUrl
 import com.bumptech.glide.load.model.LazyHeaders
 import com.example.kr_kotlin.R
 
-class ProductAdapter(private val productList: List<Product>) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+class ProductAdapter(private var productList: List<Product>) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     // Создаём ViewHolder — это оболочка для одного элемента списка
     class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -65,4 +65,9 @@ class ProductAdapter(private val productList: List<Product>) : RecyclerView.Adap
 
     // Сколько всего товаров
     override fun getItemCount(): Int = productList.size
+
+    fun updateData (newList: List<Product>) {
+        productList = newList
+        notifyDataSetChanged()
+    }
 }
