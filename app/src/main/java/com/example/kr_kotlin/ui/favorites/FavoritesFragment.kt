@@ -22,4 +22,6 @@ class FavoritesFragment : Fragment() {
         __binding = FragmentFavoritesBinding.inflate(layoutInflater, container, false)
         return mBinding.root
     }
+
+
 }

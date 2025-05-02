@@ -12,7 +12,9 @@ import com.bumptech.glide.load.model.GlideUrl
 import com.bumptech.glide.load.model.LazyHeaders
 import com.example.kr_kotlin.R
 
-class ProductAdapter(private var productList: List<Product>) : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
+class ProductAdapter(private var productList: List<Product>,
+    private val onFavoriteClick: (Product) -> Unit)
+    : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     // Создаём ViewHolder — это оболочка для одного элемента списка
     class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -22,6 +24,7 @@ class ProductAdapter(private var productList: List<Product>) : RecyclerView.Adap
         val priceTextView: TextView = itemView.findViewById(R.id.priceTextView)
         val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
         val buyButton: Button = itemView.findViewById(R.id.buyButton)
+        val favButton: ImageView = itemView.findViewById(R.id.favButton)
     }
 
     // Создаём новый ViewHolder (новую карточку товара)
@@ -41,21 +44,25 @@ class ProductAdapter(private var productList: List<Product>) : RecyclerView.Adap
         holder.nameTextView.text = product.name
 
         // Загружаем изображение
-//        Glide.with(holder.itemView.context)
-//            .load(product.imageUrl)
-//            .into(holder.productImageView)
-
-        val glideUrl = GlideUrl(
-            product.imageUrl,
-            LazyHeaders.Builder()
-                .addHeader("User-Agent", "Mozilla/5.0")
-                .addHeader("Referer", "https://www.ikea.com/")
-                .build()
-        )
-
         Glide.with(holder.itemView.context)
-            .load(glideUrl)
+            .load(product.imageUrl)
             .into(holder.productImageView)
+
+        holder.favButton.setOnClickListener {
+            onFavoriteClick(product)
+        }
+
+//        val glideUrl = GlideUrl(
+//            product.imageUrl,
+//            LazyHeaders.Builder()
+//                .addHeader("User-Agent", "Mozilla/5.0")
+//                .addHeader("Referer", "https://www.ikea.com/")
+//                .build()
+//        )
+//
+//        Glide.with(holder.itemView.context)
+//            .load(glideUrl)
+//            .into(holder.productImageView)
 
         // Можно навесить обработку на кнопку "Купить" при желании
         holder.buyButton.setOnClickListener {
