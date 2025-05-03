@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kr_kotlin.R
-import com.example.kr_kotlin.databinding.FragmentCatalogBinding
 import com.example.kr_kotlin.databinding.FragmentSubCatalogBinding
 
 
@@ -19,7 +18,7 @@ class SubCatalogFragment : Fragment() {
     private val mBinding get() = __binding!!
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var productAdapter: ProductAdapter
+    private lateinit var adapter: ProductAdapter
 
     private lateinit var viewModel: ProductViewModel
 
@@ -35,16 +34,16 @@ class SubCatalogFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this)[ProductViewModel::class.java]
-        productAdapter = ProductAdapter(emptyList()) { product ->
+        adapter = ProductAdapter(emptyList()) { product ->
             viewModel.toggleFavorite(product) // вызываем метод для смены значка на избранное/неизбранное
         }
 
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = GridLayoutManager(context, 2) // Сетка 2 столбца
-        recyclerView.adapter = productAdapter
+        recyclerView.adapter = adapter
 
         viewModel.products.observe(viewLifecycleOwner) {
-            productAdapter.updateData(it)
+            adapter.updateData(it)
         }
 
         viewModel.fetchProducts()
