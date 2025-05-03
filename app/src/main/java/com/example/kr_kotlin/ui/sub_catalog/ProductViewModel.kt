@@ -10,9 +10,36 @@ class ProductViewModel : ViewModel() {
     private val _products = MutableLiveData<List<Product>>()
     val products: LiveData<List<Product>> get() = _products
 
+    private val _favorites = MutableLiveData<List<Product>>()
+    val favorites: LiveData<List<Product>> get() = _favorites
+
     fun fetchProducts() {
         repository.getProducts { productList ->
             _products.value = productList
         }
     }
+
+    fun toggleFavorite(product: Product) {
+        val isFav = _favorites.value?.any {it.id == product.id} == true
+
+        if (isFav) {
+            repository.removeFromFarovires(product.id) {
+                loadFavorites()
+            }
+        }
+        else {
+            repository.addToFavorites(product) {
+                loadFavorites()
+            }
+        }
+
+    }
+
+    fun loadFavorites() {
+        repository.getFavotites { _favorites.value = it }
+    }
+
+
+
+
 }

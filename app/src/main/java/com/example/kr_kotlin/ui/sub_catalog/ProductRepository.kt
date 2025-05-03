@@ -33,7 +33,8 @@ class ProductRepository {
 
     fun getFavotites (onResult: (List<Product>) -> Unit) {
         favCol.get().addOnSuccessListener { snap ->
-            onResult(snap.map { it.toObject(Product::class.java).copy(id = it.id) })
+            val favProducts = snap.map { it.toObject(Product::class.java).copy(id = it.id) }
+            onResult(favProducts)
         }
             .addOnFailureListener { onResult(emptyList()) }
     }
