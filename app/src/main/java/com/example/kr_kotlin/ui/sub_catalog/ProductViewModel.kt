@@ -1,8 +1,10 @@
 package com.example.kr_kotlin.ui.sub_catalog
 
+import android.widget.ImageView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.kr_kotlin.R
 
 class ProductViewModel : ViewModel() {
     private val repository = ProductRepository()
@@ -25,11 +27,13 @@ class ProductViewModel : ViewModel() {
         if (isFav) {
             repository.removeFromFarovires(product.id) {
                 loadFavorites()
+//                imageView.setImageResource(R.drawable.ic_heart_unselected)
             }
         }
         else {
             repository.addToFavorites(product) {
                 loadFavorites()
+//                imageView.setImageResource(R.drawable.ic_heart)
             }
         }
 
@@ -38,8 +42,4 @@ class ProductViewModel : ViewModel() {
     fun loadFavorites() {
         repository.getFavotites { _favorites.value = it }
     }
-
-
-
-
 }

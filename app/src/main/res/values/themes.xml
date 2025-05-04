@@ -6,9 +6,14 @@
 <!--        <item name="itemRippleColor">@android:color/transparent</item>-->
 <!--        <item name="itemBackground">@null</item>-->
 <!--        <item name="colorControlHighlight">@android:color/transparent</item>-->
+
+
+
     </style>
 
-    <style name="Theme.KR_KOTLIN" parent="Base.Theme.KR_KOTLIN"/>
+    <style name="Theme.KR_KOTLIN" parent="Base.Theme.KR_KOTLIN">
+
+    </style>
 
 <!--    <style name="BottomNavActiveIndicatorStyle">-->
 <!--        <item name="android:background">@drawable/shape_bott_nav_item</item>-->

@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -24,7 +25,7 @@ class ProductAdapter(private var productList: List<Product>,
         val priceTextView: TextView = itemView.findViewById(R.id.priceTextView)
         val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
         val buyButton: Button = itemView.findViewById(R.id.buyButton)
-        val favButton: ImageView = itemView.findViewById(R.id.favButton)
+        val favButton: CheckBox = itemView.findViewById(R.id.favButton)
     }
 
     // Создаём новый ViewHolder (новую карточку товара)
