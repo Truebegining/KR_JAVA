@@ -27,13 +27,11 @@ class ProductViewModel : ViewModel() {
         if (isFav) {
             repository.removeFromFarovires(product.id) {
                 loadFavorites()
-//                imageView.setImageResource(R.drawable.ic_heart_unselected)
             }
         }
         else {
             repository.addToFavorites(product) {
                 loadFavorites()
-//                imageView.setImageResource(R.drawable.ic_heart)
             }
         }
 

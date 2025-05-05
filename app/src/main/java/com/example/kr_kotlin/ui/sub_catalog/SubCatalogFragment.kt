@@ -20,7 +20,6 @@ class SubCatalogFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ProductAdapter
-
     private lateinit var viewModel: ProductViewModel
 
     override fun onCreateView(
@@ -35,7 +34,7 @@ class SubCatalogFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this)[ProductViewModel::class.java]
-        adapter = ProductAdapter(emptyList()) { product ->
+        adapter = ProductAdapter(emptyList(), emptyList()) { product ->
             viewModel.toggleFavorite(product) // вызываем метод для смены значка на избранное/неизбранное
         }
 
@@ -45,9 +44,17 @@ class SubCatalogFragment : Fragment() {
 
         viewModel.products.observe(viewLifecycleOwner) {
             adapter.updateData(it)
+
         }
+        viewModel.favorites.observe (viewLifecycleOwner) {
+
+            adapter.updateFavData(it)
+        }
+        
 
         viewModel.fetchProducts()
+        viewModel.loadFavorites()
+
     }
 
     override fun onDestroyView() {

@@ -38,7 +38,6 @@
 
     <style name="Base.Widget.Material3.CompoundButton.CheckBox.CustomCheckBox">
         <item name="android:button">@drawable/selector_favbutton</item>
-
         <item name="buttonTint">@null</item>
         <item name="android:background">@null</item>
     </style>

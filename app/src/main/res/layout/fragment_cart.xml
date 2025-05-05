@@ -7,82 +7,91 @@
     tools:context=".ui.cart.CartFragment">
 
 
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="150dp"-->
+<!--        android:layout_height="198dp"-->
+<!--        android:layout_marginStart="28dp"-->
+<!--        android:layout_marginTop="47dp"-->
+<!--        android:background="@drawable/shape_item_catalog"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="150dp"
-        android:layout_height="198dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="47dp"
-        android:background="@drawable/shape_item_catalog"
+<!--        <LinearLayout-->
+<!--            android:layout_width="93dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="29dp"-->
+<!--            android:layout_marginEnd="28dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                style="@style/MotserratText"-->
+<!--                android:textSize="10sp"-->
+<!--                android:layout_gravity="center_horizontal"-->
+<!--                android:text="5060068">-->
+<!--            </TextView>-->
+
+
+<!--            <ImageView-->
+<!--                android:layout_width="93dp"-->
+<!--                android:layout_height="93dp"-->
+<!--                android:layout_gravity="center_horizontal">-->
+<!--            </ImageView>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                style="@style/MotserratText"-->
+<!--                android:textSize="10sp"-->
+<!--                android:layout_gravity="center_horizontal"-->
+<!--                android:text="ш*в*г - 80*200*40">-->
+<!--            </TextView>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                style="@style/MotserratText"-->
+<!--                android:textSize="10sp"-->
+<!--                android:layout_gravity="center_horizontal"-->
+<!--                android:text="цена: 15000₽">-->
+<!--            </TextView>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                style="@style/MotserratText"-->
+<!--                android:textSize="10sp"-->
+<!--                android:layout_gravity="center_horizontal"-->
+<!--                android:text="шкаф белый">-->
+<!--            </TextView>-->
+
+<!--        </LinearLayout>-->
+
+<!--        <ImageButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            android:layout_marginStart="11dp"-->
+<!--            android:layout_marginBottom="9dp"-->
+<!--            android:src="@drawable/ic_delete"-->
+<!--            android:background="@android:color/transparent"/>-->
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="93dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="29dp"
-            android:layout_marginEnd="28dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/MotserratText"
-                android:textSize="10sp"
-                android:layout_gravity="center_horizontal"
-                android:text="5060068">
-            </TextView>
-
-
-            <ImageView
-                android:layout_width="93dp"
-                android:layout_height="93dp"
-                android:layout_gravity="center_horizontal">
-            </ImageView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/MotserratText"
-                android:textSize="10sp"
-                android:layout_gravity="center_horizontal"
-                android:text="ш*в*г - 80*200*40">
-            </TextView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/MotserratText"
-                android:textSize="10sp"
-                android:layout_gravity="center_horizontal"
-                android:text="цена: 15000₽">
-            </TextView>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="@style/MotserratText"
-                android:textSize="10sp"
-                android:layout_gravity="center_horizontal"
-                android:text="шкаф белый">
-            </TextView>
-
-        </LinearLayout>
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="11dp"
-            android:layout_marginBottom="9dp"
-            android:src="@drawable/ic_delete"
-            android:background="@android:color/transparent"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         style="@style/ButtonStyle"

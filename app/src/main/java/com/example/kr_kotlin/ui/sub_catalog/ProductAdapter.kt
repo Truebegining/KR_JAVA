@@ -14,7 +14,8 @@ import com.bumptech.glide.load.model.LazyHeaders
 import com.example.kr_kotlin.R
 
 class ProductAdapter(private var productList: List<Product>,
-    private val onFavoriteClick: (Product) -> Unit)
+     private var favoritesList: List<Product>,
+     private val onFavoriteClick: (Product) -> Unit)
     : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     // Создаём ViewHolder — это оболочка для одного элемента списка
@@ -49,6 +50,8 @@ class ProductAdapter(private var productList: List<Product>,
             .load(product.imageUrl)
             .into(holder.productImageView)
 
+        holder.favButton.isChecked = favoritesList.any{it.id == product.id}
+
         holder.favButton.setOnClickListener {
             onFavoriteClick(product)
         }
@@ -76,6 +79,10 @@ class ProductAdapter(private var productList: List<Product>,
 
     fun updateData (newList: List<Product>) {
         productList = newList
+        notifyDataSetChanged()
+    }
+    fun updateFavData (newList: List<Product>) {
+        favoritesList = newList
         notifyDataSetChanged()
     }
 }

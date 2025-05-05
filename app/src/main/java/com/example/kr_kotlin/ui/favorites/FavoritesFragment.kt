@@ -33,7 +33,7 @@ class FavoritesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this)[ProductViewModel::class.java]
-        adapter = ProductAdapter(emptyList()) {product ->
+        adapter = ProductAdapter(emptyList(), emptyList()) {product ->
             viewModel.toggleFavorite(product)
         }
 
@@ -43,12 +43,10 @@ class FavoritesFragment : Fragment() {
 
         viewModel.favorites.observe (viewLifecycleOwner) {
             adapter.updateData(it)
+            adapter.updateFavData(it)
         }
 
         viewModel.loadFavorites()
 
     }
-
-
-
 }

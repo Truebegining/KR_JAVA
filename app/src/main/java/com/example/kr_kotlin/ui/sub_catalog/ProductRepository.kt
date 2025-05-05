@@ -12,6 +12,8 @@ class ProductRepository {
     private val productCol = firestore.collection("products")
     private val favCol = firestore.collection("users").document(currentUserId)
         .collection("favorites")
+    private val cartCol = firestore.collection("users").document(currentUserId)
+        .collection("cart")
 
     fun getProducts( callback: (List<Product>) -> Unit) {
         firestore.collection("products").get().addOnSuccessListener { result ->
@@ -31,10 +33,22 @@ class ProductRepository {
         favCol.document(productId).delete().addOnSuccessListener { onComplete }
     }
 
+    fun removeFromCart (productId: String, onComplete: () -> Unit) {
+        cartCol.document(productId).delete().addOnSuccessListener { onComplete }
+    }
+
     fun getFavotites (onResult: (List<Product>) -> Unit) {
         favCol.get().addOnSuccessListener { snap ->
             val favProducts = snap.map { it.toObject(Product::class.java).copy(id = it.id) }
             onResult(favProducts)
+        }
+            .addOnFailureListener { onResult(emptyList()) }
+    }
+
+    fun getCart (onResult: (List<Product>) -> Unit) {
+        cartCol.get().addOnSuccessListener { snap ->
+            val cartProducts = snap.map { it.toObject(Product::class.java).copy(id = it.id) }
+            onResult(cartProducts)
         }
             .addOnFailureListener { onResult(emptyList()) }
     }
