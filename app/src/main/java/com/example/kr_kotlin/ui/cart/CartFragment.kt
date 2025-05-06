@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kr_kotlin.R
 import com.example.kr_kotlin.databinding.FragmentCartBinding
@@ -36,7 +37,15 @@ class CartFragment : Fragment() {
         viewModel = ViewModelProvider(this)[CartViewModel::class.java]
         adapter = CartAdapter(emptyList(), {viewModel.delFromCart(it)})
 
+        recyclerView = mBinding.recyclerView
+        recyclerView.layoutManager = GridLayoutManager(context, 2)
+        recyclerView.adapter = adapter
 
+        viewModel.cart.observe(viewLifecycleOwner) {
+            adapter.updateData(it)
+        }
+
+        viewModel.loadCart()
     }
 
 }

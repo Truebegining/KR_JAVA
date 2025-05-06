@@ -42,10 +42,19 @@ class CartAdapter(private var productList: List<Product>,
         holder.delFromCartButton.setOnClickListener {
             onDelClick(product)
         }
+
+        holder.delFromCartButton.setOnClickListener {
+            onDelClick(product)
+        }
     }
 
     override fun getItemCount(): Int {
         return productList.size
+    }
+
+    fun updateData (newList: List<Product>) {
+        productList = newList
+        notifyDataSetChanged()
     }
 
     class CartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -56,4 +65,5 @@ class CartAdapter(private var productList: List<Product>,
         val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
         val delFromCartButton : ImageButton = itemView.findViewById(R.id.delFromCartButton)
     }
+
 }

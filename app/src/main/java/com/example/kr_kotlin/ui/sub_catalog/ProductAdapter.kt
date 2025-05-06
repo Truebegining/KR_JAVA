@@ -15,7 +15,8 @@ import com.example.kr_kotlin.R
 
 class ProductAdapter(private var productList: List<Product>,
      private var favoritesList: List<Product>,
-     private val onFavoriteClick: (Product) -> Unit)
+     private val onFavoriteClick: (Product) -> Unit,
+     private val buyButtonClick: (Product) -> Unit)
     : RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
     // Создаём ViewHolder — это оболочка для одного элемента списка
@@ -71,6 +72,7 @@ class ProductAdapter(private var productList: List<Product>,
         // Можно навесить обработку на кнопку "Купить" при желании
         holder.buyButton.setOnClickListener {
             // Например, показать сообщение "Товар добавлен в корзину"
+            buyButtonClick(product)
         }
     }
 

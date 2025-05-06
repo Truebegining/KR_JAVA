@@ -13,7 +13,17 @@ class CartViewModel : ViewModel() {
     val cart : LiveData<List<Product>> get() = _cart
 
     fun delFromCart (product: Product) {
+        repository.removeFromCart(product.id) {
+            loadCart()
 
+        }
+
+    }
+
+    fun buyButton(product: Product) {
+        repository.addToCart(product) {
+            loadCart()
+        }
     }
 
     fun loadCart() {

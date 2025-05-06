@@ -25,6 +25,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/articleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/MotserratText"
@@ -35,12 +36,14 @@
 
 
             <ImageView
+                android:id="@+id/productImageView"
                 android:layout_width="93dp"
                 android:layout_height="93dp"
                 android:layout_gravity="center_horizontal">
             </ImageView>
 
             <TextView
+                android:id="@+id/dimensionsTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/MotserratText"
@@ -50,6 +53,7 @@
             </TextView>
 
             <TextView
+                android:id="@+id/priceTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/MotserratText"
@@ -59,12 +63,15 @@
             </TextView>
 
             <TextView
+                android:id="@+id/nameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/MotserratText"
                 android:textSize="10sp"
                 android:layout_gravity="center_horizontal"
-                android:text="шкаф белый">
+                android:text="шкаф белый"
+                android:maxLines="1"
+                android:ellipsize="end">
             </TextView>
 
         </LinearLayout>

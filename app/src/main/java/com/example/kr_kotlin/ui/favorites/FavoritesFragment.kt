@@ -7,9 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.kr_kotlin.R
-import com.example.kr_kotlin.databinding.FragmentCatalogBinding
 import com.example.kr_kotlin.databinding.FragmentFavoritesBinding
+import com.example.kr_kotlin.ui.cart.CartViewModel
 import com.example.kr_kotlin.ui.sub_catalog.ProductAdapter
 import com.example.kr_kotlin.ui.sub_catalog.ProductViewModel
 
@@ -19,8 +18,9 @@ class FavoritesFragment : Fragment() {
     private var __binding : FragmentFavoritesBinding? = null
     private val mBinding get() = __binding!!
 
-    private lateinit var viewModel : ProductViewModel
+    private lateinit var productViewModel : ProductViewModel
     private lateinit var adapter: ProductAdapter
+    private lateinit var cartViewModel: CartViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,21 +32,22 @@ class FavoritesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this)[ProductViewModel::class.java]
-        adapter = ProductAdapter(emptyList(), emptyList()) {product ->
-            viewModel.toggleFavorite(product)
+        productViewModel = ViewModelProvider(this)[ProductViewModel::class.java]
+        cartViewModel = ViewModelProvider(this)[CartViewModel::class.java]
+        adapter = ProductAdapter(emptyList(), emptyList(), {product ->
+            productViewModel.toggleFavorite(product)} ) {
+            cartViewModel.buyButton(it)
         }
-
         val recyclerView = mBinding.recyclerView
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         recyclerView.adapter = adapter
 
-        viewModel.favorites.observe (viewLifecycleOwner) {
+        productViewModel.favorites.observe (viewLifecycleOwner) {
             adapter.updateData(it)
             adapter.updateFavData(it)
         }
 
-        viewModel.loadFavorites()
+        productViewModel.loadFavorites()
 
     }
 }

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kr_kotlin.R
 import com.example.kr_kotlin.databinding.FragmentSubCatalogBinding
+import com.example.kr_kotlin.ui.cart.CartViewModel
 
 
 class SubCatalogFragment : Fragment() {
@@ -20,7 +21,8 @@ class SubCatalogFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ProductAdapter
-    private lateinit var viewModel: ProductViewModel
+    private lateinit var productViewModel: ProductViewModel
+    private lateinit var cartViewModel: CartViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,30 +32,33 @@ class SubCatalogFragment : Fragment() {
         return mBinding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this)[ProductViewModel::class.java]
-        adapter = ProductAdapter(emptyList(), emptyList()) { product ->
-            viewModel.toggleFavorite(product) // вызываем метод для смены значка на избранное/неизбранное
-        }
+        productViewModel = ViewModelProvider(this)[ProductViewModel::class.java]
+        cartViewModel = ViewModelProvider(this)[CartViewModel::class.java]
+        adapter = ProductAdapter(emptyList(), emptyList(), {product ->
+            productViewModel.toggleFavorite(product)} ) {
+            cartViewModel.buyButton(it)
+        }  // вызываем метод для смены значка на избранное/неизбранное
 
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = GridLayoutManager(context, 2) // Сетка 2 столбца
         recyclerView.adapter = adapter
 
-        viewModel.products.observe(viewLifecycleOwner) {
+        productViewModel.products.observe(viewLifecycleOwner) {
             adapter.updateData(it)
 
         }
-        viewModel.favorites.observe (viewLifecycleOwner) {
+        productViewModel.favorites.observe (viewLifecycleOwner) {
 
             adapter.updateFavData(it)
         }
         
 
-        viewModel.fetchProducts()
-        viewModel.loadFavorites()
+        productViewModel.fetchProducts()
+        productViewModel.loadFavorites()
 
     }
 

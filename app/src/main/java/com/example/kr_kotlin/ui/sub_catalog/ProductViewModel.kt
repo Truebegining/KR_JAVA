@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.kr_kotlin.R
+import com.example.kr_kotlin.ui.cart.CartViewModel
 
 class ProductViewModel : ViewModel() {
     private val repository = ProductRepository()

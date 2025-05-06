@@ -37,6 +37,10 @@ class ProductRepository {
         cartCol.document(productId).delete().addOnSuccessListener { onComplete }
     }
 
+    fun addToCart (product: Product, onComplete: () -> Unit) {
+        cartCol.document(product.id).set(product)
+    }
+
     fun getFavotites (onResult: (List<Product>) -> Unit) {
         favCol.get().addOnSuccessListener { snap ->
             val favProducts = snap.map { it.toObject(Product::class.java).copy(id = it.id) }
