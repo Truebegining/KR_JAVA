@@ -14,6 +14,8 @@ import com.example.kr_kotlin.R
 import com.example.kr_kotlin.databinding.FragmentCartBinding
 import com.example.kr_kotlin.ui.sub_catalog.ProductAdapter
 import com.example.kr_kotlin.ui.sub_catalog.ProductViewModel
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 
 class CartFragment : Fragment() {
 
@@ -45,7 +47,17 @@ class CartFragment : Fragment() {
         orderButton = mBinding.orderButton
 
         orderButton.setOnClickListener {
-
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle("Подтвердите заказ")
+                .setMessage("Вы уверены, что хотите оформить заказ?")
+                .setNegativeButton("Отмена") {dialog, _ ->
+                    dialog.dismiss()
+                }
+                .setPositiveButton("Оформить") {dialog, _ ->
+                    dialog.dismiss()
+                    viewModel.orderButton()
+                    Snackbar.make(view, "Заказ оформлен!", Snackbar.LENGTH_SHORT).show()
+                }.show()
         }
 
         viewModel.cart.observe(viewLifecycleOwner) {

@@ -1,9 +1,14 @@
 package com.example.kr_kotlin.ui.sub_catalog
 
+import com.example.kr_kotlin.ui.cart.CartViewModel
+import com.example.kr_kotlin.ui.cart.Order
+import com.example.kr_kotlin.ui.cart.OrderItem
 import com.google.firebase.Firebase
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.toObject
+
 
 class ProductRepository {
     private val firestore = FirebaseFirestore.getInstance()
@@ -43,8 +48,26 @@ class ProductRepository {
         cartCol.document(product.id).set(product).addOnSuccessListener { onComplete }
     }
 
-    fun order(product: List<Product>, onComplete: () -> Unit) {
-        orderCol.document()
+    fun order(productList: List<Product>, onComplete: () -> Unit) {
+        val items = productList.map {
+            OrderItem(
+                article = it.article,
+                name = it.name,
+                price = it.price
+            )
+        }
+
+        val newOrderRef = orderCol.document()
+
+        val order = Order(
+            id = newOrderRef.id,
+            createdAt = Timestamp.now(),
+            items = items
+        )
+
+        newOrderRef.set(order).addOnSuccessListener {
+            onComplete
+        }
     }
 
     fun getFavotites (onResult: (List<Product>) -> Unit) {
