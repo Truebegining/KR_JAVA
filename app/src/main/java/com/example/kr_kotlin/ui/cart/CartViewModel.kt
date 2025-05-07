@@ -26,6 +26,10 @@ class CartViewModel : ViewModel() {
         }
     }
 
+    fun orderButton() {
+
+    }
+
     fun loadCart() {
         repository.getCart { _cart.value =  it}
     }

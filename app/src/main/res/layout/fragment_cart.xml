@@ -94,6 +94,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:id="@+id/orderButton"
         style="@style/ButtonStyle"
         android:layout_width="346dp"
         android:layout_height="54dp"

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -22,6 +23,7 @@ class CartFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: CartAdapter
     private lateinit var viewModel: CartViewModel
+    private lateinit var orderButton: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,6 +42,11 @@ class CartFragment : Fragment() {
         recyclerView = mBinding.recyclerView
         recyclerView.layoutManager = GridLayoutManager(context, 2)
         recyclerView.adapter = adapter
+        orderButton = mBinding.orderButton
+
+        orderButton.setOnClickListener {
+
+        }
 
         viewModel.cart.observe(viewLifecycleOwner) {
             adapter.updateData(it)

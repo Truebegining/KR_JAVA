@@ -14,6 +14,8 @@ class ProductRepository {
         .collection("favorites")
     private val cartCol = firestore.collection("users").document(currentUserId)
         .collection("cart")
+    private val orderCol = firestore.collection("users").document(currentUserId)
+        .collection("orders")
 
     fun getProducts( callback: (List<Product>) -> Unit) {
         firestore.collection("products").get().addOnSuccessListener { result ->
@@ -38,7 +40,11 @@ class ProductRepository {
     }
 
     fun addToCart (product: Product, onComplete: () -> Unit) {
-        cartCol.document(product.id).set(product)
+        cartCol.document(product.id).set(product).addOnSuccessListener { onComplete }
+    }
+
+    fun order(product: List<Product>, onComplete: () -> Unit) {
+        orderCol.document()
     }
 
     fun getFavotites (onResult: (List<Product>) -> Unit) {

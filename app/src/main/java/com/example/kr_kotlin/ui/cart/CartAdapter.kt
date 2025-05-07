@@ -42,10 +42,6 @@ class CartAdapter(private var productList: List<Product>,
         holder.delFromCartButton.setOnClickListener {
             onDelClick(product)
         }
-
-        holder.delFromCartButton.setOnClickListener {
-            onDelClick(product)
-        }
     }
 
     override fun getItemCount(): Int {
