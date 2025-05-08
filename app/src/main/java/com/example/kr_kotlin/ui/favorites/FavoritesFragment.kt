@@ -41,7 +41,7 @@ class FavoritesFragment : Fragment() {
             productViewModel.toggleFavorite(product)}, {
             cartViewModel.buyButton(it) }) {
             val action = FavoritesFragmentDirections
-                .actionFavoritesFragmentToProductCardfFragment(it)
+                .actionFavoritesFragmentToProductCardfFragment(it, productViewModel)
             findNavController().navigate(action)
         }
         val recyclerView = mBinding.recyclerView

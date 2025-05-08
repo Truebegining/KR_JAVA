@@ -1,13 +1,16 @@
 package com.example.kr_kotlin.ui.sub_catalog
 
+import android.os.Parcelable
 import android.widget.ImageView
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.kr_kotlin.R
 import com.example.kr_kotlin.ui.cart.CartViewModel
+import kotlinx.parcelize.Parcelize
 
-class ProductViewModel : ViewModel() {
+@Parcelize
+class ProductViewModel : ViewModel(), Parcelable {
     private val repository = ProductRepository()
 
     private val _products = MutableLiveData<List<Product>>()

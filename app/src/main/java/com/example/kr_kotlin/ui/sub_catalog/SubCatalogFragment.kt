@@ -44,7 +44,7 @@ class SubCatalogFragment : Fragment() {
             productViewModel.toggleFavorite(product)}, {
             cartViewModel.buyButton(it) },) {
             val action = SubCatalogFragmentDirections
-                .actionSubCatalogFragmentToProductCardfFragment(it)
+                .actionSubCatalogFragmentToProductCardfFragment(it, productViewModel)
             findNavController().navigate(action)
         }
 

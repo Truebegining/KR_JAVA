@@ -6,14 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.kr_kotlin.R
 import com.example.kr_kotlin.databinding.FragmentCartBinding
-import com.example.kr_kotlin.ui.sub_catalog.ProductAdapter
 import com.example.kr_kotlin.ui.sub_catalog.ProductViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
@@ -25,7 +22,8 @@ class CartFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: CartAdapter
-    private lateinit var viewModel: CartViewModel
+    private lateinit var cartViewModel: CartViewModel
+    private lateinit var productViewModel: ProductViewModel
     private lateinit var orderButton: Button
 
     override fun onCreateView(
@@ -39,10 +37,11 @@ class CartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this)[CartViewModel::class.java]
-        adapter = CartAdapter(emptyList(), {viewModel.delFromCart(it)}, {
+        cartViewModel = ViewModelProvider(this)[CartViewModel::class.java]
+        productViewModel = ViewModelProvider(this)[ProductViewModel::class.java]
+        adapter = CartAdapter(emptyList(), {cartViewModel.delFromCart(it)}, {
             val action = CartFragmentDirections
-                .actionCartFragmentToProductCardfFragment(it)
+                .actionCartFragmentToProductCardfFragment(it, productViewModel)
             findNavController().navigate(action)
         })
 
@@ -60,16 +59,21 @@ class CartFragment : Fragment() {
                 }
                 .setPositiveButton("Оформить") {dialog, _ ->
                     dialog.dismiss()
-                    viewModel.orderButton()
+                    cartViewModel.orderButton()
                     Snackbar.make(view, "Заказ оформлен!", Snackbar.LENGTH_SHORT).show()
                 }.show()
         }
 
-        viewModel.cart.observe(viewLifecycleOwner) {
+        cartViewModel.cart.observe(viewLifecycleOwner) {
             adapter.updateData(it)
         }
 
-        viewModel.loadCart()
+        cartViewModel.loadCart()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        __binding = null
     }
 
 }

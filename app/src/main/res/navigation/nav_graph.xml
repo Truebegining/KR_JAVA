@@ -25,6 +25,10 @@
         <argument
             android:name="product"
             app:argType="com.example.kr_kotlin.ui.sub_catalog.Product"/>
+        <argument
+            android:name="productViewModel"
+            app:argType="com.example.kr_kotlin.ui.sub_catalog.ProductViewModel">
+        </argument>
         <action
             android:id="@+id/action_productCardfFragment_to_cartFragment"
             app:destination="@id/cartFragment">
@@ -52,6 +56,10 @@
             <argument
                 android:name="product"
                 app:argType="com.example.kr_kotlin.ui.sub_catalog.Product"/>
+            <argument
+                android:name="productViewModel"
+                app:argType="com.example.kr_kotlin.ui.sub_catalog.ProductViewModel">
+            </argument>
         </action>
     </fragment>
     <fragment
