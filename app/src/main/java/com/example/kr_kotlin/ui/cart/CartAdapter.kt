@@ -13,7 +13,8 @@ import com.example.kr_kotlin.ui.sub_catalog.Product
 
 
 class CartAdapter(private var productList: List<Product>,
-    private val onDelClick: (Product) -> Unit)
+                  private val onDelClick: (Product) -> Unit,
+                  private val onItemClick: (Product) -> Unit)
     : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -41,6 +42,10 @@ class CartAdapter(private var productList: List<Product>,
 
         holder.delFromCartButton.setOnClickListener {
             onDelClick(product)
+        }
+
+        holder.itemView.setOnClickListener {
+            onItemClick(product)
         }
     }
 

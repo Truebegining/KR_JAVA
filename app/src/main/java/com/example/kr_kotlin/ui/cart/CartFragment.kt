@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kr_kotlin.R
@@ -39,7 +40,11 @@ class CartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this)[CartViewModel::class.java]
-        adapter = CartAdapter(emptyList(), {viewModel.delFromCart(it)})
+        adapter = CartAdapter(emptyList(), {viewModel.delFromCart(it)}, {
+            val action = CartFragmentDirections
+                .actionCartFragmentToProductCardfFragment(it)
+            findNavController().navigate(action)
+        })
 
         recyclerView = mBinding.recyclerView
         recyclerView.layoutManager = GridLayoutManager(context, 2)

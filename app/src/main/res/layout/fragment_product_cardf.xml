@@ -5,51 +5,55 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.productCard.ProductCardfFragment">
-    
+
     <LinearLayout
-        android:layout_width="332dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="14dp"
         android:layout_marginTop="53dp"
-        android:layout_marginEnd="47dp">
-        
+        android:layout_marginEnd="47dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
+            android:id="@+id/productImageView"
             android:layout_width="317dp"
             android:layout_height="317dp"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal" />
 
         <TextView
+            android:id="@+id/dimensionsTextView"
+            style="@style/MotserratText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/MotserratText"
-            android:textSize="32sp"
             android:layout_gravity="start"
-            android:text="ш*в*г - 80*200*40">
-        </TextView>
+            android:text="ш*в*г - 80*200*40"
+            android:textSize="32sp"></TextView>
 
         <TextView
+            android:id="@+id/priceTextView"
+            style="@style/MotserratText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/MotserratText"
-            android:textSize="32sp"
             android:layout_gravity="start"
-            android:text="цена: 15000₽">
-        </TextView>
+            android:text="цена: 15000₽"
+            android:textSize="32sp"></TextView>
 
         <TextView
+            android:id="@+id/nameTextView"
+            style="@style/MotserratText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/MotserratText"
-            android:textSize="32sp"
             android:layout_gravity="start"
-            android:text="шкаф белый">
-        </TextView>
+            android:text="шкаф белый"
+            android:textSize="32sp"></TextView>
 
     </LinearLayout>
 
     <Button
+        android:id="@+id/buyButton"
         style="@style/ButtonStyle"
         android:layout_width="346dp"
         android:layout_height="54dp"
@@ -61,6 +65,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
+        android:id="@+id/favButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"

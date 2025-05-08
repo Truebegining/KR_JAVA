@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.kr_kotlin.R
 import com.example.kr_kotlin.databinding.FragmentFavoritesBinding
 import com.example.kr_kotlin.ui.cart.CartViewModel
 import com.example.kr_kotlin.ui.sub_catalog.ProductAdapter
 import com.example.kr_kotlin.ui.sub_catalog.ProductViewModel
+import com.example.kr_kotlin.ui.sub_catalog.SubCatalogFragmentDirections
 
 
 class FavoritesFragment : Fragment() {
@@ -35,8 +38,11 @@ class FavoritesFragment : Fragment() {
         productViewModel = ViewModelProvider(this)[ProductViewModel::class.java]
         cartViewModel = ViewModelProvider(this)[CartViewModel::class.java]
         adapter = ProductAdapter(emptyList(), emptyList(), {product ->
-            productViewModel.toggleFavorite(product)} ) {
-            cartViewModel.buyButton(it)
+            productViewModel.toggleFavorite(product)}, {
+            cartViewModel.buyButton(it) }) {
+            val action = FavoritesFragmentDirections
+                .actionFavoritesFragmentToProductCardfFragment(it)
+            findNavController().navigate(action)
         }
         val recyclerView = mBinding.recyclerView
         recyclerView.layoutManager = GridLayoutManager(context, 2)

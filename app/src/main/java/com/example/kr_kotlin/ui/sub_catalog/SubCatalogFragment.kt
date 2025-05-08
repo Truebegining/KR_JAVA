@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kr_kotlin.R
 import com.example.kr_kotlin.databinding.FragmentSubCatalogBinding
 import com.example.kr_kotlin.ui.cart.CartViewModel
+import com.google.android.play.integrity.internal.ac
 
 
 class SubCatalogFragment : Fragment() {
@@ -39,9 +41,12 @@ class SubCatalogFragment : Fragment() {
         productViewModel = ViewModelProvider(this)[ProductViewModel::class.java]
         cartViewModel = ViewModelProvider(this)[CartViewModel::class.java]
         adapter = ProductAdapter(emptyList(), emptyList(), {product ->
-            productViewModel.toggleFavorite(product)} ) {
-            cartViewModel.buyButton(it)
-        }  // вызываем метод для смены значка на избранное/неизбранное
+            productViewModel.toggleFavorite(product)}, {
+            cartViewModel.buyButton(it) },) {
+            val action = SubCatalogFragmentDirections
+                .actionSubCatalogFragmentToProductCardfFragment(it)
+            findNavController().navigate(action)
+        }
 
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = GridLayoutManager(context, 2) // Сетка 2 столбца

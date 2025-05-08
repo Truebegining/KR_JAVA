@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.navigation.NavGraph
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.kr_kotlin.databinding.ActivityMainBinding
@@ -38,6 +39,16 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
+        val navGraph = navController.navInflater.inflate(R.navigation.nav_graph)
+
+        if (FirebaseAuth.getInstance().currentUser != null) {
+            navGraph.setStartDestination(R.id.catalogFragment)
+        } else {
+            navGraph.setStartDestination(R.id.authFragment)
+        }
+
+        navController.graph = navGraph
+
         val bottomNavigationView = mBinding.bottomBar
         bottomNavigationView.setupWithNavController(navController)
 
@@ -52,9 +63,9 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
-        if (FirebaseAuth.getInstance().currentUser != null) {
-            navController.navigate(R.id.action_authFragment_to_catalogFragment)
-        }
+//        if (FirebaseAuth.getInstance().currentUser != null) {
+//            navController.navigate(R.id.action_authFragment_to_catalogFragment)
+//        }
     }
 
     override fun onDestroy() {
