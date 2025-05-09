@@ -7,6 +7,7 @@ import com.google.firebase.Firebase
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.toObject
 
 
@@ -22,8 +23,22 @@ class ProductRepository {
     private val orderCol = firestore.collection("users").document(currentUserId)
         .collection("orders")
 
-    fun getProducts( callback: (List<Product>) -> Unit) {
-        firestore.collection("products").get().addOnSuccessListener { result ->
+//    fun getProducts(category: String, callback: (List<Product>) -> Unit) {
+//        firestore.collection("products").get().addOnSuccessListener { result ->
+//            val products = result.map { it.toObject(Product::class.java).copy(id = it.id) }
+//            callback(products)
+//        }
+//            .addOnFailureListener {
+//                callback(emptyList())
+//            }
+//    }
+
+    fun getProducts(category: String?, callback: (List<Product>) -> Unit) {
+        var query : Query = firestore.collection("products")
+        if (!category.isNullOrBlank()){
+            query = query.whereEqualTo("category", category)
+        }
+        query.get().addOnSuccessListener { result ->
             val products = result.map { it.toObject(Product::class.java).copy(id = it.id) }
             callback(products)
         }

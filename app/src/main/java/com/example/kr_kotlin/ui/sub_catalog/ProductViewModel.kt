@@ -19,8 +19,8 @@ class ProductViewModel : ViewModel(), Parcelable {
     private val _favorites = MutableLiveData<List<Product>>()
     val favorites: LiveData<List<Product>> get() = _favorites
 
-    fun fetchProducts() {
-        repository.getProducts { productList ->
+    fun fetchProducts(category: String? = null) {
+        repository.getProducts(category) { productList ->
             _products.value = productList
         }
     }

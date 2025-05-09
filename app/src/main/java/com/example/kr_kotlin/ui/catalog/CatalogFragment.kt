@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.kr_kotlin.R
 import com.example.kr_kotlin.databinding.FragmentCartBinding
 import com.example.kr_kotlin.databinding.FragmentCatalogBinding
+import com.example.kr_kotlin.ui.sub_catalog.SubCatalogFragmentDirections
 
 class CatalogFragment : Fragment() {
 
@@ -31,13 +32,19 @@ class CatalogFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mBinding.buttonSofas.setOnClickListener {
-            findNavController().navigate(R.id.action_catalogFragment_to_subCatalogFragment)
+            val action = CatalogFragmentDirections
+                .actionCatalogFragmentToSubCatalogFragment("диван")
+            findNavController().navigate(action)
         }
         mBinding.buttonWardrobes.setOnClickListener {
-            findNavController().navigate(R.id.action_catalogFragment_to_subCatalogFragment)
+            val action = CatalogFragmentDirections
+                .actionCatalogFragmentToSubCatalogFragment("шкаф")
+            findNavController().navigate(action)
         }
         mBinding.buttonBeds.setOnClickListener {
-            findNavController().navigate(R.id.action_catalogFragment_to_subCatalogFragment)
+            val action = CatalogFragmentDirections
+                .actionCatalogFragmentToSubCatalogFragment("кровать")
+            findNavController().navigate(action)
         }
 
         mBinding.icUser.setOnClickListener {

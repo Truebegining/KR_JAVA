@@ -15,7 +15,12 @@
             app:destination="@id/profileFragment" />
         <action
             android:id="@+id/action_catalogFragment_to_subCatalogFragment"
-            app:destination="@id/subCatalogFragment" />
+            app:destination="@id/subCatalogFragment" >
+            <argument
+                android:name="category"
+                app:argType="string">
+            </argument>
+        </action>
     </fragment>
     <fragment
         android:id="@+id/productCardfFragment"
@@ -50,6 +55,10 @@
         android:name="com.example.kr_kotlin.ui.sub_catalog.SubCatalogFragment"
         android:label="fragment_sub_catalog"
         tools:layout="@layout/fragment_sub_catalog" >
+        <argument
+            android:name="category"
+            app:argType="string">
+        </argument>
         <action
             android:id="@+id/action_subCatalogFragment_to_productCardfFragment"
             app:destination="@id/productCardfFragment">
@@ -58,8 +67,7 @@
                 app:argType="com.example.kr_kotlin.ui.sub_catalog.Product"/>
             <argument
                 android:name="productViewModel"
-                app:argType="com.example.kr_kotlin.ui.sub_catalog.ProductViewModel">
-            </argument>
+                app:argType="com.example.kr_kotlin.ui.sub_catalog.ProductViewModel"/>
         </action>
     </fragment>
     <fragment
