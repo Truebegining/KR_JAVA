@@ -41,6 +41,7 @@ class SubCatalogFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val category = args.category
+        val search = args.search
         productViewModel = ViewModelProvider(this)[ProductViewModel::class.java]
         cartViewModel = ViewModelProvider(this)[CartViewModel::class.java]
         adapter = ProductAdapter(emptyList(), emptyList(), {product ->
@@ -65,7 +66,7 @@ class SubCatalogFragment : Fragment() {
         }
         
 
-        productViewModel.fetchProducts(category)
+        productViewModel.fetchProducts(category, search)
         productViewModel.loadFavorites()
 
     }
@@ -74,5 +75,4 @@ class SubCatalogFragment : Fragment() {
         super.onDestroyView()
         __binding = null
     }
-
 }

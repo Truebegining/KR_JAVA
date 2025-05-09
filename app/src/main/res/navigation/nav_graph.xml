@@ -18,7 +18,16 @@
             app:destination="@id/subCatalogFragment" >
             <argument
                 android:name="category"
-                app:argType="string">
+                app:argType="string"
+                android:defaultValue="@null"
+                app:nullable="true">
+            </argument>
+
+            <argument
+                android:name="search"
+                app:argType="string"
+                android:defaultValue="@null"
+                app:nullable="true">
             </argument>
         </action>
     </fragment>
@@ -57,7 +66,16 @@
         tools:layout="@layout/fragment_sub_catalog" >
         <argument
             android:name="category"
-            app:argType="string">
+            app:argType="string"
+            android:defaultValue="@null"
+            app:nullable="true">
+        </argument>
+
+        <argument
+            android:name="search"
+            app:argType="string"
+            android:defaultValue="@null"
+            app:nullable="true">
         </argument>
         <action
             android:id="@+id/action_subCatalogFragment_to_productCardfFragment"

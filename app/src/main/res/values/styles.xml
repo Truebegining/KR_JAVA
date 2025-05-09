@@ -36,6 +36,11 @@
         <item name="android:background">@drawable/shape_search_bar</item>
     </style>
 
+<!--    <style name="CustomSearchView" parent="Widget.Material3.SearchView">-->
+<!--        <item name="android:background">@drawable/shape_search_bar</item>-->
+<!--        <item name="iconifiedByDefault">false</item>-->
+<!--    </style>-->
+
     <style name="Base.Widget.Material3.CompoundButton.CheckBox.CustomCheckBox">
         <item name="android:button">@drawable/selector_favbutton</item>
         <item name="buttonTint">@null</item>

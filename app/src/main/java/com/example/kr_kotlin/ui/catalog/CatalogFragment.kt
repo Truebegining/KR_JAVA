@@ -31,6 +31,8 @@ class CatalogFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
         mBinding.buttonSofas.setOnClickListener {
             val action = CatalogFragmentDirections
                 .actionCatalogFragmentToSubCatalogFragment("диван")
@@ -50,5 +52,22 @@ class CatalogFragment : Fragment() {
         mBinding.icUser.setOnClickListener {
             findNavController().navigate(R.id.action_catalogFragment_to_profileFragment)
         }
+
+        val searchView = mBinding.searchView
+
+        searchView.setOnQueryTextListener( object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                searchView.clearFocus()
+                val text = query.orEmpty().trim()
+                if (text.isNotEmpty()){
+                    val action = CatalogFragmentDirections
+                        .actionCatalogFragmentToSubCatalogFragment(search = query)
+                    findNavController().navigate(action)
+                }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean = true
+        })
     }
 }

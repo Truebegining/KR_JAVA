@@ -13,14 +13,16 @@ import kotlinx.parcelize.Parcelize
 class ProductViewModel : ViewModel(), Parcelable {
     private val repository = ProductRepository()
 
+    private val allProducts = MutableLiveData<List<Product>>()
+
     private val _products = MutableLiveData<List<Product>>()
     val products: LiveData<List<Product>> get() = _products
 
     private val _favorites = MutableLiveData<List<Product>>()
     val favorites: LiveData<List<Product>> get() = _favorites
 
-    fun fetchProducts(category: String? = null) {
-        repository.getProducts(category) { productList ->
+    fun fetchProducts(category: String? = null, search: String? = null ) {
+        repository.getProducts(category, search) { productList ->
             _products.value = productList
         }
     }

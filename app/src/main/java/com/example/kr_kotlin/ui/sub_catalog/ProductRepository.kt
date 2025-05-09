@@ -33,10 +33,13 @@ class ProductRepository {
 //            }
 //    }
 
-    fun getProducts(category: String?, callback: (List<Product>) -> Unit) {
+    fun getProducts(category: String?,search: String?, callback: (List<Product>) -> Unit) {
         var query : Query = firestore.collection("products")
         if (!category.isNullOrBlank()){
             query = query.whereEqualTo("category", category)
+        }
+        if (!search.isNullOrBlank()){
+            query = query.orderBy("name").startAt(search).endAt(search + "\uf8ff")
         }
         query.get().addOnSuccessListener { result ->
             val products = result.map { it.toObject(Product::class.java).copy(id = it.id) }
