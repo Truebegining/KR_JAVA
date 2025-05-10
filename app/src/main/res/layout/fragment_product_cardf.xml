@@ -11,7 +11,7 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/buyButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/backButton">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -41,7 +41,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:text="ш*в*г - 80*200*40"
-                    android:textSize="32sp"></TextView>
+                    android:textSize="32sp" />
 
                 <TextView
                     android:id="@+id/priceTextView"
@@ -50,7 +50,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:text="цена: 15000₽"
-                    android:textSize="32sp"></TextView>
+                    android:textSize="32sp" />
 
                 <TextView
                     android:id="@+id/nameTextView"
@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:text="шкаф белый"
-                    android:textSize="32sp"></TextView>
+                    android:textSize="32sp" />
             </LinearLayout>
 
             <CheckBox
@@ -74,6 +74,17 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="9dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buyButton"

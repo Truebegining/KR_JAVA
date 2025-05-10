@@ -58,13 +58,15 @@ class SubCatalogFragment : Fragment() {
 
         productViewModel.products.observe(viewLifecycleOwner) {
             adapter.updateData(it)
-
         }
         productViewModel.favorites.observe (viewLifecycleOwner) {
 
             adapter.updateFavData(it)
         }
-        
+
+        mBinding.backButton.setOnClickListener {
+            findNavController().navigateUp()
+        }
 
         productViewModel.fetchProducts(category, search)
         productViewModel.loadFavorites()

@@ -38,9 +38,9 @@ class ProductRepository {
         if (!category.isNullOrBlank()){
             query = query.whereEqualTo("category", category)
         }
-        if (!search.isNullOrBlank()){
-            query = query.orderBy("name").startAt(search).endAt(search + "\uf8ff")
-        }
+//        if (!search.isNullOrBlank()){
+////            query = query.orderBy("name").startAt(search).endAt(search + "\uf8ff")
+////        }
         query.get().addOnSuccessListener { result ->
             val products = result.map { it.toObject(Product::class.java).copy(id = it.id) }
             callback(products)

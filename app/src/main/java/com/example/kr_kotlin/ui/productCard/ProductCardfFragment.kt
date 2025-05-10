@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.kr_kotlin.R
@@ -56,6 +57,10 @@ class ProductCardfFragment : Fragment() {
 
         mBinding.favButton.setOnClickListener {
             productViewModel.toggleFavorite(product)
+        }
+
+        mBinding.backButton.setOnClickListener {
+            findNavController().navigateUp()
         }
 
 
