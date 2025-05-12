@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/catalogFragment"
-        android:name="com.example.kr_kotlin.ui.catalog.CatalogFragment"
+        android:name="com.example.kr_kotlin.ui.catalog_java.CatalogFragment"
         android:label="fragment_catalog"
         tools:layout="@layout/fragment_catalog" >
         <action
@@ -32,25 +32,21 @@
         </action>
     </fragment>
     <fragment
-        android:id="@+id/productCardfFragment"
-        android:name="com.example.kr_kotlin.ui.productCard.ProductCardfFragment"
-        android:label="fragment_product_cardf"
-        tools:layout="@layout/fragment_product_cardf" >
+        android:id="@+id/productCardFragment"
+        android:name="com.example.kr_kotlin.ui.productCard_java.ProductCardFragment"
+        android:label="ProductCardFragment"
+        tools:layout="@layout/fragment_product_card" >
         <argument
             android:name="product"
-            app:argType="com.example.kr_kotlin.ui.sub_catalog.Product"/>
-        <argument
-            android:name="productViewModel"
-            app:argType="com.example.kr_kotlin.ui.sub_catalog.ProductViewModel">
-        </argument>
+            app:argType="com.example.kr_kotlin.ui.sub_catalog_java.Product"/>
         <action
-            android:id="@+id/action_productCardfFragment_to_cartFragment"
+            android:id="@+id/action_productCardFragment_to_cartFragment"
             app:destination="@id/cartFragment">
         </action>
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.kr_kotlin.ui.profile.ProfileFragment"
+        android:name="com.example.kr_kotlin.ui.profile_java.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -61,8 +57,8 @@
     </fragment>
     <fragment
         android:id="@+id/subCatalogFragment"
-        android:name="com.example.kr_kotlin.ui.sub_catalog.SubCatalogFragment"
-        android:label="fragment_sub_catalog"
+        android:name="com.example.kr_kotlin.ui.sub_catalog_java.SubCatalogFragment"
+        android:label="SubCatalogFragment"
         tools:layout="@layout/fragment_sub_catalog" >
         <argument
             android:name="category"
@@ -78,47 +74,43 @@
             app:nullable="true">
         </argument>
         <action
-            android:id="@+id/action_subCatalogFragment_to_productCardfFragment"
-            app:destination="@id/productCardfFragment">
+            android:id="@+id/action_subCatalogFragment_to_productCardFragment"
+            app:destination="@id/productCardFragment">
             <argument
                 android:name="product"
-                app:argType="com.example.kr_kotlin.ui.sub_catalog.Product"/>
-            <argument
-                android:name="productViewModel"
-                app:argType="com.example.kr_kotlin.ui.sub_catalog.ProductViewModel"/>
+                app:argType="com.example.kr_kotlin.ui.sub_catalog_java.Product"/>
         </action>
     </fragment>
     <fragment
         android:id="@+id/cartFragment"
-        android:name="com.example.kr_kotlin.ui.cart.CartFragment"
-        android:label="fragment_cart"
+        android:name="com.example.kr_kotlin.ui.cart_java.CartFragment"
+        android:label="CartFragment"
         tools:layout="@layout/fragment_cart" >
         <action
-            android:id="@+id/action_cartFragment_to_productCardfFragment"
-            app:destination="@id/productCardfFragment" >
+            android:id="@+id/action_cartFragment_to_productCardFragment"
+            app:destination="@id/productCardFragment" >
             <argument
                 android:name="product"
-                app:argType="com.example.kr_kotlin.ui.sub_catalog.Product">
-            </argument>
+                app:argType="com.example.kr_kotlin.ui.sub_catalog_java.Product"/>
         </action>
     </fragment>
     <fragment
         android:id="@+id/favoritesFragment"
-        android:name="com.example.kr_kotlin.ui.favorites.FavoritesFragment"
+        android:name="com.example.kr_kotlin.ui.favorites_java.FavoritesFragment"
         android:label="fragment_favorites"
         tools:layout="@layout/fragment_favorites" >
         <action
-            android:id="@+id/action_favoritesFragment_to_productCardfFragment"
-            app:destination="@id/productCardfFragment" >
+            android:id="@+id/action_favoritesFragment_to_productCardFragment"
+            app:destination="@id/productCardFragment">
             <argument
                 android:name="product"
-                app:argType="com.example.kr_kotlin.ui.sub_catalog.Product">
+                app:argType="com.example.kr_kotlin.ui.sub_catalog_java.Product">
             </argument>
         </action>
     </fragment>
     <fragment
         android:id="@+id/registrFragment"
-        android:name="com.example.kr_kotlin.ui.registration.RegistrFragment"
+        android:name="com.example.kr_kotlin.ui.registration_java.RegistrFragment"
         android:label="RegistrFragment" >
         <action
             android:id="@+id/action_registrFragment_to_authFragment"
@@ -126,7 +118,7 @@
     </fragment>
     <fragment
         android:id="@+id/authFragment"
-        android:name="com.example.kr_kotlin.ui.authorization.AuthFragment"
+        android:name="com.example.kr_kotlin.ui.authorization_java.AuthFragment"
         android:label="AuthFragment" >
         <action
             android:id="@+id/action_authFragment_to_catalogFragment"
